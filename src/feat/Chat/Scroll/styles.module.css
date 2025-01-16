@@ -1,0 +1,34 @@
+.scrollContainer {
+  width: 200px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.scrollContent::-webkit-scrollbar {
+  display: none; /* Safari и Chrome */
+}
+
+.scrollContent {
+  height: 400px;
+  overflow-y: scroll;
+  padding-right: 20px;
+  box-sizing: content-box;
+}
+
+.customScrollbar {
+  position: absolute;
+  top: 0%;
+  right: 0;
+  width: 5px;
+  height: 100%;
+}
+
+.customScrollbarThumb {
+  background: #888;
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  border-radius: 30px;
+}
