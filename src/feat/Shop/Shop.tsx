@@ -3,6 +3,7 @@ import { match } from "ts-pattern";
 import { Products } from "./components/Shop/Products";
 import { Shipping } from "./components/Shipping/Shipping";
 import { Payment } from "./components/Payment/Payment";
+import { Pay } from "./components/Pay/Pay";
 import { ShopContext } from "./ShopContext";
 import { ShopState, ShopStatePayment } from "./shopMachine";
 
@@ -14,8 +15,9 @@ function ShopOne() {
         .with(ShopState.INIT, () => <Products />)
         .with(ShopState.SHIPPING, () => <Shipping />)
         .with({ [ShopState.PAYMENT]: ShopStatePayment.INIT }, () => <Payment />)
-        .with({ [ShopState.PAYMENT]: 'CREDIT_CARD' }, () => <Payment />)
-        .with({ [ShopState.PAYMENT]: 'PAYPAL' }, () => <Payment />)
+        .with({ [ShopState.PAYMENT]: ShopStatePayment.CREDIT_CARD }, () => <Payment />)
+        .with({ [ShopState.PAYMENT]: ShopStatePayment.PAYPAL }, () => <Payment />)
+        .with(ShopState.PAY, () => <Pay />)
         .with(ShopState.DONE, () => <div>Done</div>)
         .exhaustive()}
     </div>
